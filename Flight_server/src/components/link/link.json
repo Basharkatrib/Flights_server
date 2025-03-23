@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_link_links",
+  "info": {
+    "displayName": "link",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "src": {
+      "type": "string"
+    }
+  }
+}

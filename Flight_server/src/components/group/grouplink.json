@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_group_grouplinks",
+  "info": {
+    "displayName": "grouplink",
+    "icon": "apps"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "group": {
+      "type": "component",
+      "repeatable": true,
+      "component": "link.link"
+    }
+  }
+}
