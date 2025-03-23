@@ -1,10 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "banners",
+  "collectionName": "topdests",
   "info": {
-    "singularName": "banner",
-    "pluralName": "banners",
-    "displayName": "banner",
+    "singularName": "topdest",
+    "pluralName": "topdests",
+    "displayName": "topdest",
     "description": ""
   },
   "options": {
@@ -24,16 +24,10 @@
         }
       }
     },
-    "image": {
-      "type": "media",
-      "multiple": true,
-      "required": false,
-      "allowedTypes": [
-        "images",
-        "files",
-        "videos",
-        "audios"
-      ],
+    "trip": {
+      "type": "component",
+      "repeatable": true,
+      "component": "trips.dests",
       "pluginOptions": {
         "i18n": {
           "localized": true
