@@ -386,7 +386,12 @@ export interface ApiDownloadDownload extends Struct.SingleTypeSchema {
     };
   };
   attributes: {
-    button: Schema.Attribute.Component<'button.button', false>;
+    button: Schema.Attribute.Component<'button.button', false> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

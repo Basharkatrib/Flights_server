@@ -46,7 +46,12 @@
     "button": {
       "type": "component",
       "repeatable": false,
-      "component": "button.button"
+      "component": "button.button",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }
