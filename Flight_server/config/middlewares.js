@@ -15,6 +15,13 @@ module.exports = [
       },
     },
   },
+  {
+    name: "strapi::session",
+    config: {
+      secure: process.env.NODE_ENV === "production", 
+      sameSite: "lax",
+    },
+  },
   'strapi::cors',
   'strapi::poweredBy',
   'strapi::query',
