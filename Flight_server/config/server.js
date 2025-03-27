@@ -7,9 +7,4 @@ module.exports = ({ env }) => ({
   webhooks: {
     populateRelations: env.bool('WEBHOOKS_POPULATE_RELATIONS', false),
   },
-  proxy: true, // ✅ تأكدنا من تمكين البروكسي
-  settings: {
-    url: env('PUBLIC_URL', 'https://flights-server.onrender.com'), // ✅ اجعل Strapi يعرف عنوان السيرفر الصحيح
-    secureProxy: env.bool('SECURE_PROXY', true), // ✅ يجبر استخدام HTTPS عند الضرورة
-  },
 });
