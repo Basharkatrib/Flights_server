@@ -13,20 +13,39 @@ module.exports = [
           upgradeInsecureRequests: null,
         },
       },
+      headers: {
+        "X-Forwarded-Proto": "https" // ✅ يجبر Strapi على التعامل مع الطلبات كـ HTTPS
+      }
     },
   },
   {
-    name: "strapi::session",
+    name: 'strapi::cors',
     config: {
-      secure: process.env.NODE_ENV === "production", 
-      sameSite: "lax",
+      origin: [
+        "https://flights-server.onrender.com",
+        "http://localhost:5173",
+        "http://localhost:1337"
+      ],
+      methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "HEAD", "OPTIONS"],
+      headers: ["Content-Type", "Authorization", "Origin", "Accept"],
+      credentials: true,
+      keepHeaderOnError: true,
     },
   },
-  'strapi::cors',
   'strapi::poweredBy',
   'strapi::query',
   'strapi::body',
-  'strapi::session',
+  {
+    name: 'strapi::session',
+    config: {
+      cookie: {
+        secure: process.env.NODE_ENV === "production", // ✅ تشغيل secure فقط في الإنتاج
+        httpOnly: true,
+        sameSite: "lax",
+      },
+      trustProxy: true, // ✅ السماح لـ Strapi بفهم أنه خلف Proxy
+    },
+  },
   'strapi::favicon',
   'strapi::public',
 ];
