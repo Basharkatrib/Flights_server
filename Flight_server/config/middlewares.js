@@ -18,8 +18,23 @@ module.exports = [
   'strapi::cors',
   'strapi::poweredBy',
   'strapi::query',
-  'strapi::body',
-  'strapi::session',
+  {
+    name: 'strapi::body',
+    config: {
+      // يمكنك وضع إعدادات إضافية هنا إذا لزم الأمر
+    },
+  },
+  {
+    name: 'strapi::session',
+    config: {
+      cookie: {
+        secure: true, // يضمن إرسال ملفات تعريف الارتباط فقط عبر HTTPS
+        httpOnly: true,
+        sameSite: "lax",
+      },
+      trustProxy: true, // مطلوب عند العمل خلف وكيل مثل Render
+    },
+  },
   'strapi::favicon',
   'strapi::public',
 ];
