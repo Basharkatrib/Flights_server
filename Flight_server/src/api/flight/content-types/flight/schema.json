@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "flights",
+  "info": {
+    "singularName": "flight",
+    "pluralName": "flights",
+    "displayName": "Flight",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "departure_airport": {
+      "type": "string"
+    },
+    "departure_terminal": {
+      "type": "string"
+    },
+    "departure_time": {
+      "type": "time"
+    },
+    "arrival_airport": {
+      "type": "string"
+    },
+    "arrival_terminal": {
+      "type": "string"
+    },
+    "arrival_time": {
+      "type": "time"
+    },
+    "stops": {
+      "type": "integer"
+    },
+    "transit_info": {
+      "type": "json"
+    },
+    "airline": {
+      "type": "string"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "available_seats": {
+      "type": "integer"
+    }
+  }
+}

@@ -420,6 +420,45 @@ export interface ApiDownloadDownload extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiFlightFlight extends Struct.CollectionTypeSchema {
+  collectionName: 'flights';
+  info: {
+    description: '';
+    displayName: 'Flight';
+    pluralName: 'flights';
+    singularName: 'flight';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    airline: Schema.Attribute.String;
+    arrival_airport: Schema.Attribute.String;
+    arrival_terminal: Schema.Attribute.String;
+    arrival_time: Schema.Attribute.Time;
+    available_seats: Schema.Attribute.Integer;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    departure_airport: Schema.Attribute.String;
+    departure_terminal: Schema.Attribute.String;
+    departure_time: Schema.Attribute.Time;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::flight.flight'
+    > &
+      Schema.Attribute.Private;
+    price: Schema.Attribute.Decimal;
+    publishedAt: Schema.Attribute.DateTime;
+    stops: Schema.Attribute.Integer;
+    transit_info: Schema.Attribute.JSON;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiFooterFooter extends Struct.CollectionTypeSchema {
   collectionName: 'footers';
   info: {
@@ -1102,6 +1141,7 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::download.download': ApiDownloadDownload;
+      'api::flight.flight': ApiFlightFlight;
       'api::footer.footer': ApiFooterFooter;
       'api::navbar.navbar': ApiNavbarNavbar;
       'api::service.service': ApiServiceService;

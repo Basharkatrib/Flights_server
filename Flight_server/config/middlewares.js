@@ -21,18 +21,17 @@ module.exports = [
   {
     name: 'strapi::body',
     config: {
-      // يمكنك وضع إعدادات إضافية هنا إذا لزم الأمر
     },
   },
   {
     name: 'strapi::session',
     config: {
       cookie: {
-        secure: true, // يضمن إرسال ملفات تعريف الارتباط فقط عبر HTTPS
+        secure: true, 
         httpOnly: true,
         sameSite: "lax",
       },
-      trustProxy: true, // مطلوب عند العمل خلف وكيل مثل Render
+      trustProxy: true, 
     },
   },
   'strapi::favicon',
