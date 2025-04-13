@@ -11,17 +11,20 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "users_permissions_user": {
+    "user": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "plugin::users-permissions.user",
+      "inversedBy": "order"
+    },
+    "flight": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::flight.flight",
       "inversedBy": "orders"
     },
-    "users_permissions_ser": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "plugin::users-permissions.user",
-      "inversedBy": "order"
+    "state": {
+      "type": "boolean"
     }
   }
 }
